@@ -37,6 +37,13 @@ jobs:
       - name: Run pytest with coverage
         run: pytest --cov=src --cov-report=xml --maxfail=1 --disable-warnings -q
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.xml
+
+
       - name: Build Docker image
         run: |
           docker build -t rrr_ctrl:${{ github.sha }} .
