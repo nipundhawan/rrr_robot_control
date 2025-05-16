@@ -1,0 +1,38 @@
+name: CI
+
+# 1. When to run:
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 2. Check out your code
+      - uses: actions/checkout@v3
+
+      # 3. Set up Python
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      # 4. Install dependencies
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # 5. Run linting (optional but recommended)
+      - name: Lint with flake8
+        run: |
+          pip install flake8
+          flake8 src tests
+
+      # 6. Run tests
+      - name: Run pytest
+        run: pytest --maxfail=1 --disable-warnings -q
