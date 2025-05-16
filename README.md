@@ -1,4 +1,5 @@
-![CI](https://github.com/nipundhawan/rrr_robot_control/workflows/CI/badge.svg) ![Coverage](https://codecov.io/gh/nipundhawan/rrr_robot_control/branch/main/graph/badge.svg)
+![CI](https://github.com/nipundhawan/rrr_robot_control/workflows/CI/badge.svg)
+![Coverage](https://codecov.io/gh/nipundhawan/rrr_robot_control/branch/main/graph/badge.svg)
 
 # RRR Robot End-Effector Tracking
 
