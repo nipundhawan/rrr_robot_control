@@ -34,5 +34,11 @@ jobs:
           flake8 src tests
 
       # 6. Run tests
-      - name: Run pytest
-        run: pytest --maxfail=1 --disable-warnings -q
+      - name: Run pytest with coverage
+        run: pytest --cov=src --cov-report=xml --maxfail=1 --disable-warnings -q
+
+      - name: Build Docker image
+        run: |
+          docker build -t rrr_ctrl:${{ github.sha }} .
+
+
