@@ -1,6 +1,7 @@
 import numpy as np
 from src.robot import RRRRobot
 
+
 def test_forward_kinematics_zero():
     robot = RRRRobot(L=1.0)
     # all zeros → arm extended length 3 along x

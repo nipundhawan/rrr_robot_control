@@ -1,10 +1,12 @@
 import numpy as np
 
+
 class Target:
     """
     Sinusoidal target generator:
     x fixed at 2L, y = L·sin(2πf t), measured at 30 Hz.
     """
+
     def __init__(self, L=1.0, f=5.0):
         self.L = L
         self.f = f
