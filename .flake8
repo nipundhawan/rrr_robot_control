@@ -1,5 +1,5 @@
 [flake8]
 max-line-length = 88
 extend-ignore =
-    E203,  # whitespace before ':', handled by Black
-    W503   # line break before binary operator, handled by Black
+    E203
+    W503   
