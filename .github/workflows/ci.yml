@@ -41,4 +41,17 @@ jobs:
         run: |
           docker build -t rrr_ctrl:${{ github.sha }} .
 
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Tag & Push Docker image to GHCR
+        run: |
+          IMAGE=ghcr.io/nipundhawan/rrr_robot_control:${{ github.sha }}
+          docker tag rrr_ctrl:${{ github.sha }} $IMAGE
+          docker push $IMAGE
+
 
